@@ -14,18 +14,14 @@
     <link href="css/styles.css" rel="stylesheet" />
   </head>
   <body>
-    <!-- HTML Follows BEM naming conventions 
-  IDs are only used for sections to connect menu achors to sections -->
     <div class="navbar-container">
       <nav class="navbar">
         <div class="justify-center">
           <div class="navbar__content">
-            <div class="navbar__header">
-              <img class="logo-img" src="images/logo.svg" />
-              <h3 class="page-title">
-                Landing Page <span class="opacity-5">Project</span>
-              </h3>
-            </div>
+            <h3 class="page-title">
+              Landing Page <span class="opacity-5">Project</span>
+            </h3>
+
             <!-- Navigation starts as empty UL that will be populated with JS -->
             <div class="link__container">
               <p>Sections:&nbsp;&nbsp;</p>
@@ -56,11 +52,8 @@
             with javascript.
           </p>
         </header>
-        <!-- Each Section has an ID (used for the anchor) and 
-    a data attribute that will populate the li node.
-    Adding more sections will automatically populate nav.
-    The first section is set to active class by default -->
-        <section id="section1" data-nav="Section 1" class="your-active-class">
+
+        <section id="section1" data-nav="Section 1">
           <div class="landing__container">
             <h2>Section 1</h2>
             <p>

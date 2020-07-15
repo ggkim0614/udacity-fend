@@ -1,49 +1,3 @@
-const containerCount = document.querySelectorAll(".landing__container").length;
-console.log(containerCount);
-for (let i = 1; i <= containerCount; i++) {
-  let targetItem = document.getElementById("section" + i);
-  console.log(targetItem);
-  let bounding = targetItem.getBoundingClientRect();
-  console.log(bounding);
-
-  targetItem.addEventListener("click", () => {
-    targetItem.scrollIntoView({ behavior: "smooth" });
-  });
-}
-
-const navLinkCount = document.getElementsByTagName("li").length;
-console.log(navLinkCount);
-for (let i = 1; i <= navLinkCount; i++) {
-  let targetLink = [...document.getElementsByClassName("section" + i)];
-  console.log(targetLink);
-  targetLink.forEach((el) => {
-    el.addEventListener("click", () => {
-      let targetItem = document.getElementById("section" + i);
-      targetItem.scrollIntoView({ behavior: "smooth" });
-    });
-  });
-}
-
-// function that makes the navigation bar shrink in height once the user has scrolled down for more than x pixels
-window.onscroll = () => shrinkNav();
-
-shrinkNav = () => {
-  if (
-    document.documentElement.scrollTop > 100 ||
-    document.body.scrollTop > 100
-  ) {
-    // shrink nav bar height
-    document.querySelector(".navbar").style.padding = "10px 0";
-    // shrink logo
-    document.querySelector(".logo-img").style.transform = "scale(0.6)";
-    document.querySelector(".page-title").style.fontSize = "18px";
-  } else {
-    document.querySelector(".navbar").style.padding = "20px 0";
-    document.querySelector(".logo-img").style.transform = "scale(0.8)";
-    document.querySelector(".page-title").style.fontSize = "24px";
-  }
-};
-
 // function for the scroll progress bar located under the navigation bar
 document.addEventListener(
   "scroll",
@@ -62,18 +16,68 @@ document.addEventListener(
   { passive: true }
 );
 
-// Add class 'active' to section when near top of viewport
+// function that makes the navigation bar shrink in height once the user has scrolled down for more than x pixels
+shrinkNav = () => {
+  if (
+    document.documentElement.scrollTop > 100 ||
+    document.body.scrollTop > 100
+  ) {
+    // shrink nav bar height
+    document.querySelector(".navbar").style.padding = "3px 0";
+    // shrink logo
+    document.querySelector(".logo-img").style.transform = "scale(0.6)";
+    document.querySelector(".page-title").style.fontSize = "18px";
+  } else {
+    document.querySelector(".navbar").style.padding = "15px 0";
+    document.querySelector(".logo-img").style.transform = "scale(0.8)";
+    document.querySelector(".page-title").style.fontSize = "24px";
+  }
+};
 
-// Scroll to anchor ID using scrollTO event
+const navLinkCount = document.getElementsByTagName("li").length;
+for (i = 1; i <= navLinkCount; i++) {
+  let targetLink = [...document.getElementsByClassName("section" + i)];
+  let targetSection = document.getElementById("section" + i);
 
-/**
- * End Main Functions
- * Begin Events
- *
- */
+  targetLink.forEach((el) => {
+    el.addEventListener("click", () => {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+}
 
-// Build menu
+const containerCount = document.querySelectorAll(".landing__container").length;
 
-// Scroll to section on link click
+checkIfInViewport = () => {
+  isInViewport = (el) => {
+    let bounding = el.getBoundingClientRect();
+    return (
+      bounding.top >= -150 &&
+      bounding.left >= 0 &&
+      bounding.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      bounding.right <=
+        (window.innerWidth || document.documentElement.clientWidth)
+    );
+  };
 
-// Set sections as active
+  for (i = 1; i <= containerCount; i++) {
+    let targetContainer = document.getElementById("section" + i);
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (isInViewport(targetContainer)) {
+          targetContainer.classList.add("your-active-class");
+        } else {
+          targetContainer.classList.remove("your-active-class");
+        }
+      },
+      false
+    );
+  }
+};
+
+window.onscroll = () => {
+  shrinkNav();
+};
+checkIfInViewport();

@@ -1,13 +1,3 @@
-/*
- *
- * CSS written based on SMACSS architecture.
- * To learn more, visit: http://smacss.com/
- * 
- * For simplicity, no reset or normalize is added. 
- * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
- *
-*/
-
 /* ---- Base Rules ---- */
 
 :root {
@@ -27,19 +17,21 @@ body {
 /* Typeography General*/
 h1 {
   font-size: 2em;
-  /* margin: 2em 1rem; */
 }
 
 @media only screen and (min-width: 35em) {
   h1 {
     font-size: 4em;
-    /* margin: 2em 4rem 1em; */
   }
 }
 
 h2 {
   font-size: 3em;
   color: var(--text-primary);
+}
+
+h3 {
+  margin: 0;
 }
 
 p {
@@ -114,17 +106,12 @@ section {
 .navbar__content {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
   width: 80vw;
   max-width: 1200px;
   align-items: center;
   height: 100%;
-}
-
-.navbar__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .page-title {
@@ -134,6 +121,14 @@ section {
 .link__container {
   font-family: "Open Sans", sans-serif;
   display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.logo-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -152,7 +147,7 @@ section {
   text-align: right;
   display: flex;
   justify-content: space-between;
-  width: 60px;
+  width: 80px;
 }
 
 .navbar__content li {
@@ -164,6 +159,7 @@ section {
 .navbar__content li:hover {
   color: var(--primary-color);
   transform: scale(1.2);
+  border-bottom: 2px solid #b1b1b1;
 }
 
 .navbar__content .content__link {
@@ -202,6 +198,7 @@ section {
 /* Footer Styles */
 .page__footer {
   background: #02b3e4;
+  margin-top: 30px;
   padding: 1em;
   color: #fff;
   display: flex;
@@ -213,10 +210,11 @@ section {
   color: #fff;
 }
 
-/* ---- Theme Rules ---- */
 /* Landing Container Styles */
 .landing__container {
   text-align: left;
+  padding: 20px;
+  margin: 10px 0;
 }
 
 @media only screen and (min-width: 35em) {
@@ -226,35 +224,12 @@ section {
   }
 }
 
-section:nth-of-type(even) .landing__container {
-  margin-right: 0;
-  margin-left: auto;
-  text-align: right;
-}
-
-/* ---- Theme State Rules ---- */
-/* Section Active Styles */
-/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {
-  background: linear-gradient(0deg, #02b3e4 0%, #02b3e4 100%);
-}
-
-section.your-active-class .landing__container::before {
-  opacity: 1;
-  animation: rotate 4s linear 0s infinite forwards;
-}
-
-section.your-active-class .landing__container::after {
-  opacity: 1;
-  animation: rotate 5s linear 0s infinite forwards reverse;
-}
-
-/* Section Active Styles Keyframe Animations */
-@keyframes rotate {
-  from {
-    transform: rotate(0deg) translate(-1em) rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg) translate(-1em) rotate(-360deg);
-  }
+/* Active Styles that will be activated once the targeted element is in the viewport */
+.your-active-class {
+  background: #f5fcfe;
+  border-radius: 10px;
+  box-shadow: 0 2.7px 2.1px rgba(0, 0, 0, 0.024),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.052), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
