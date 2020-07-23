@@ -10,31 +10,48 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="app">
-      <div class="holder headline">
-        Weather Journal App
-      </div>
-      <div class="holder zip">
-        <label for="zip">Enter Zipcode here</label>
-        <input type="text" id="zip" placeholder="enter zip code here" />
-      </div>
-      <div class="holder feel">
-        <label for="feelings">How are you feeling today?</label>
-        <textarea
-          class="myInput"
-          id="feelings"
-          placeholder="Enter your feelings here"
-          rows="9"
-          cols="50"
-        ></textarea>
-        <button id="generate" type="submit">Generate</button>
-      </div>
-      <div class="holder entry">
-        <div class="title">Most Recent Entry</div>
-        <div id="entryHolder">
-          <div id="date"></div>
-          <div id="temp"></div>
-          <div id="content"></div>
+    <div class="app-container">
+      <div id="app">
+        <div class="title-container">
+          <img
+            src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/iOS/ios10-weather-app-icon.png"
+            alt=""
+          />
+          <div>
+            <span class="bold">Weather Journal</span
+            ><span class="opacity-75"> App</span>
+          </div>
+        </div>
+        <div class="zip">
+          <label for="zip" class="opacity-75"
+            >Enter <span class="bold">ZIP</span> code here</label
+          >
+          <input type="text" id="zip" place="enter zip code here" />
+        </div>
+        <div class="feel">
+          <label for="feelings" class="opacity-75"
+            >How are you <span class="bold">feeling</span> today?</label
+          >
+          <textarea
+            class="myInput"
+            id="feelings"
+            place="Enter your feelings here"
+            rows="9"
+            cols="50"
+          ></textarea>
+        </div>
+        <button id="generate" type="submit">
+          <span class="thin">Generate</span>
+        </button>
+        <hr />
+        <div class="entry">
+          <div class="title">Most Recent Entry &nbsp;&#9999;&#65039;</div>
+          <div id="entry">
+            <div id="date"></div>
+            <div id="name"></div>
+            <div id="temp"></div>
+            <div id="content"></div>
+          </div>
         </div>
       </div>
     </div>

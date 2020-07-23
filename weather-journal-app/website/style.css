@@ -1,104 +1,168 @@
+/* utility classes */
+.opacity-75 {
+  opacity: 0.75;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+.thin {
+  font-weight: lighter;
+}
+
 body {
-  background: #fffff8;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: rgb(28, 28, 30);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+}
+
+.app-container {
+  padding: 20px;
 }
 
 #app {
-  display: grid;
-  grid-auto-rows: minmax(150px, auto);
   /* grid-template-columns:  */
-  height: 100vh;
-  background: #f23557;
-  color: #f0d43a;
+  /* height: 100vh; */
+  background: rgb(242, 242, 247);
+  color: rgb(28, 28, 30);
   justify-content: center;
-  grid-gap: 1em;
   font-size: 20px;
-  font-family: "Oswald", sans-serif;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px rgb(0, 0, 0);
 }
 
-.holder {
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+.title-container img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
 }
 
 .entry {
-  background: rgba(59, 74, 107, 0.4);
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 #entryHolder {
+  padding-top: 30px;
+  font-size: 14px;
+}
+#name {
+  font-weight: bolder;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
 #date {
+  font-weight: bolder;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
 #temp {
+  font-weight: bolder;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
 #content {
+  font-weight: bolder;
+  font-size: 14px;
 }
 
-.headline {
-}
-.title {
+#entry {
+  margin-top: 20px;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
-label {
-  display: block;
-  font-size: 27px;
-}
-
-input {
-  display: block;
-  height: 60px;
-  width: 320px;
-  background: #22b2da;
-  color: #f0d43a;
-  font-size: 20px;
-  font-family: "Oswald", sans-serif;
-  border: none;
-}
-
 button {
-  width: 400px;
-  height: 100px;
-  background: #3b4a6b;
-  color: #f0d43a;
-  font-size: 26px;
-  font-family: "Oswald", sans-serif;
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(45deg, #3939cc 30%, #1cb5e0 120%);
+  color: rgb(229, 229, 234);
+  font-size: 20px;
+  border-radius: 10px;
   border: none;
-  box-shadow: 2px 4px 5px #444;
+  box-shadow: 0 3px 5px 2px rgba(14, 60, 187, 0.3);
+  transition: 0.3s;
+  margin-top: 30px;
+  cursor: pointer;
 }
+
+button:hover {
+  transform: scale(1.05);
+}
+
+hr {
+  color: rgb(142, 142, 147);
+  opacity: 0.5;
+  margin-top: 20px;
+}
+
 h1 {
   font-size: 36px;
 }
 
+label {
+  display: block;
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+input {
+  display: block;
+  height: 40px;
+  width: 80%;
+  background: rgb(229, 229, 234);
+  border-radius: 10px;
+  color: #3939cc;
+  font-size: 14px;
+  font-family: Consolas, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+  border: none;
+  padding: 0 15px;
+}
+
 textarea {
-  background: #22b2da;
-  color: #f0d43a;
-  font-size: 20px;
-  font-family: "Oswald", sans-serif;
+  background: rgb(229, 229, 234);
+  width: 80%;
+  color: #3939cc;
+  font-size: 14px;
+  border-radius: 10px;
+  font-family: Consolas, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+  border: none;
+  padding: 10px 15px;
 }
 /* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-  outline: none;
+  outline: 3px solid linear-gradient(45deg, #3939cc 30%, #1cb5e0 120%);
 }
 /* Style for Placeholder Text*/
 ::placeholder {
   /* Firefox, Chrome, Opera */
-  color: #f0d43a;
-  font-family: "Oswald", sans-serif;
+  color: rgb(142, 142, 147);
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #f0d43a;
-  font-family: "Oswald", sans-serif;
+  color: rgb(142, 142, 147);
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #f0d43a;
-  font-family: "Oswald", sans-serif;
+  color: rgb(142, 142, 147);
 }

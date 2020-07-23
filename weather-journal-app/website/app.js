@@ -12,19 +12,22 @@ async function performAction(e) {
   const userResponse = document.getElementById("feelings").value;
 
   const apiKey = "a45586e199e6495ee5d1bc591e78f907";
-  const baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${apiKey}`;
+  const baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=`;
 
-  fetch(baseURL)
+  fetch(baseURL + apiKey)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
       postData("/addData", {
+        name: data.name,
         temp: data.main.temp,
         date: newDate,
         content: userResponse,
-      }).catch((e) => {});
+      }).catch((error) => {
+        console.log("error", error);
+      });
 
       updateUI();
     });
@@ -48,13 +51,24 @@ const postData = async (url = "", data = {}) => {
 };
 
 const updateUI = async () => {
-  const request = await fetch("/");
+  const request = await fetch("/getData");
+  const allData = await request.json();
+  console.log(allData.name);
   try {
-    const allData = await request.json();
-    console.log(allData);
-    document.getElementById("temp").innerHTML = allData[0].temp;
-    document.getElementById("date").innerHTML = allData[0].date;
-    document.getElementById("content").innerHTML = allData[0].content;
+    console.log(allData, "allData");
+
+    // Change kelvin to celsius
+    const celsiusTemp = Math.trunc(
+      parseInt(allData[allData.length - 1].temp) - 273.15
+    );
+    document.getElementById("name").innerHTML =
+      allData[allData.length - 1].name;
+    document.getElementById("temp").innerHTML =
+      "Temperature: " + celsiusTemp + " °C";
+    document.getElementById("date").innerHTML =
+      "Date: " + allData[allData.length - 1].date;
+    document.getElementById("content").innerHTML =
+      allData[allData.length - 1].content;
   } catch (error) {
     console.log("error", error);
   }
