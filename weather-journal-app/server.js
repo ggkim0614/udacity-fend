@@ -28,7 +28,7 @@ const server = app.listen(port, () => {
 });
 
 // Return projectData object
-app.get("/", getData);
+app.get("/getData", getData);
 
 function getData(req, res) {
   res.send(projectData);
@@ -38,6 +38,7 @@ app.post("/addData", addData);
 
 function addData(req, res) {
   newData = {
+    name: req.body.name,
     temp: req.body.temp,
     date: req.body.date,
     content: req.body.content,
