@@ -62,7 +62,7 @@ const updateUI = async () => {
       parseInt(allData[allData.length - 1].temp) - 273.15
     );
     document.getElementById("name").innerHTML =
-      allData[allData.length - 1].name;
+      "Location: " + allData[allData.length - 1].name;
     document.getElementById("temp").innerHTML =
       "Temperature: " + celsiusTemp + " °C";
     document.getElementById("date").innerHTML =
